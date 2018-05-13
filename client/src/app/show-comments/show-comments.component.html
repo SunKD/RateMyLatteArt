@@ -1,0 +1,38 @@
+<div>
+  <div class="row main">
+    <div class="col-md-6">
+      <a (click)="imageClicked(showItem._id)">
+        <img src="{{showItem.imgUrl}}">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <form (submit)="onCommentSubmit(showItem._id)">
+        <div class="row">
+          <div class="col-md-8">
+            <input type="number" name="newComment.rating" [(ngModel)]="newComment.rating" class="form-control" min="1" max="5">
+          </div>
+          <div class="col-md-4 text-left">
+            Stars
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea name="newComment.comment" [(ngModel)]="newComment.comment" class="form-control" placeholder="Type your comment here"></textarea>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <input type="submit" value="Rate!" class="btn btn-primary form-control">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+<div *ngFor="let latte of lattes">
+  <app-show-comments [showItem]="latte"></app-show-comments>
+</div>
+<br>

@@ -1,0 +1,10 @@
+
+  <h3>Created by {{showItem.creator}}</h3>
+  <img src="{{showItem.imgUrl}}">
+  <div *ngFor="let item of showItem.ratings">
+    <p>{{item.rating}} stars</p>
+    <p>{{item.comment}}</p>
+  </div>
+
+  
+

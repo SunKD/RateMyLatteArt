@@ -1,0 +1,9 @@
+.main{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.submitForm{
+    position: sticky;
+    top: 20px;
+}

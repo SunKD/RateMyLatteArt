@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div style="text-align:center">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1>
+          {{ title }}
+        </h1>
+      </div>
+
+    </div>
+
+    <div class="row main">
+      <div class="col-md-4 submitForm">
+        <form (submit)="onSubmit()">
+          <!-- <p>{{ newTask | json }} </p> -->
+          <h5>Submit a Latte to be rated</h5>
+          <label>Artist Name:</label>
+          <input type="text" name="newLatte.creator" [(ngModel)]="newLatte.creator" class="form-control" />
+          <label>Image url:</label>
+          <input type="text" name="newLatte.imgUrl" [(ngModel)]="newLatte.imgUrl" class="form-control" />
+          <input type="submit" value="Submit" class="btn btn-info form-control" />
+        </form>
+      </div>
+      <div class="col-md-8">
+          <div *ngFor="let latte of lattes">
+            <app-show-comments [showItem]="latte" (aTaskEventEmitter)="dataFromChild($event)"></app-show-comments>
+          </div>
+        </div>
+      </div>
+      <div>
+          <app-show-latte *ngIf="thisLatte" [showItem] = "thisLatte"></app-show-latte>
+        </div>
+    </div>
+
+  </div>
